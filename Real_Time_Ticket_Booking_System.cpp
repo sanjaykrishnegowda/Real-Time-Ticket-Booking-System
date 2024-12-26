@@ -70,14 +70,14 @@ private:
         }
 
         // Write ticket details into the file
-        ticketFile << "***** TICKET *****\n";
+        ticketFile << "==== TICKET ====\n";
         ticketFile << "Ticket ID: " << ticket.ticketID << "\n";
         ticketFile << "Customer: " << customerName << "\n";
         ticketFile << "Origin: " << ticket.origin << "\n";
         ticketFile << "Destination: " << ticket.destination << "\n";
         ticketFile << "Date: " << ticket.date << "\n";
         ticketFile << "Transport: " << ticket.transportType << "\n";
-        ticketFile << "Price: $" << fixed << setprecision(2) << ticket.price << "\n";
+        ticketFile << "Price: INR " << fixed << setprecision(2) << ticket.price << "\n";
         ticketFile << "Status: Booked\n";
         ticketFile << "***************************\n";
 
@@ -123,7 +123,7 @@ public:
             && ticket.date == date && ticket.isAvailable) {
             cout << "\nTicket found: " << ticket.ticketID << " " << ticket.origin << " -> " << ticket.destination
                  << " on " << ticket.date << " (" << ticket.transportType << ")\n";
-            cout << "Price: $" << ticket.price << "\n";
+            cout << "Price: INR " << ticket.price << "\n";
             cout << "Do you want to book this ticket? (y/n): ";
             char choice;
             cin >> choice;
@@ -213,8 +213,8 @@ public:
 
     // Confirm the payment
     cout << "\nYou have selected " << paymentMethod << " as your payment method.\n";
-    cout << "The total payment amount is: $" << fixed << setprecision(2) << payment << "\n";
-    cout << "Do you confirm the payment of $" << fixed << setprecision(2) << payment << "? (y/n): ";
+    cout << "The total payment amount is: INR " << fixed << setprecision(2) << payment << "\n";
+    cout << "Do you confirm the payment of INR " << fixed << setprecision(2) << payment << "? (y/n): ";
     
     char confirm;
     cin >> confirm;
@@ -226,7 +226,7 @@ public:
 
 
     if (confirm == 'y' || confirm == 'Y') {
-        cout << "\nPayment of $" << fixed << setprecision(2) << payment << " via " << paymentMethod << " successful.\n";
+        cout << "\nPayment of INR " << fixed << setprecision(2) << payment << " via " << paymentMethod << " successful.\n";
         return true;  // Payment is successful
     } else {
         cout << "Payment canceled. Booking not completed.\n";
@@ -404,7 +404,7 @@ int main() {
 
     while (true) {
         int choice;
-        cout << "\n**** Ticket Booking System ****\n";
+        cout << "\n==== Ticket Booking System ====\n";
         cout << "1. Search Tickets\n2. Book Ticket\n3. Cancel Booking\n4. View Booked Tickets\n5. View Canceled Tickets\n6. Exit\n";
         cout << "Enter your choice: ";
         cin >> choice;
@@ -422,19 +422,19 @@ int main() {
             cin >> origin;
             cout << "Enter destination: ";
             cin >> destination;
-            cout << "Enter date (yyyy-mm-dd): ";
+            cout << "Enter date (YYYY-MM-DD): ";
             cin >> date;
 
             bookingSystem.searchTickets(transport, origin, destination, date);
         } else if (choice == 2) {
             string transport, origin, destination, date, customerName;
-            cout << "Enter transport type: ";
+            cout << "Enter transport type (Bus/Train/Flight) : ";
             cin >> transport;
             cout << "Enter origin: ";
             cin >> origin;
             cout << "Enter destination: ";
             cin >> destination;
-            cout << "Enter date (yyyy-mm-dd): ";
+            cout << "Enter date (YYYY-MM-DD): ";
             cin >> date;
             bookingSystem.bookTicket(transport, origin, destination, date, currentUser);
         } else if (choice == 3) {

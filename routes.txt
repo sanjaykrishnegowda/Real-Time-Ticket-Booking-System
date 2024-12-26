@@ -1,5 +1,5 @@
 101 NewYork Boston 2024-12-25 Train 50 1
-102 NewYork Boston 2024-12-25 Bus 30 1
+102 NewYork Boston 2024-12-25 Bus 30 0
 103 NewYork Washington 2024-12-26 Train 60 1
 104 Boston Washington 2024-12-27 Bus 25 1
 105 NewYork Boston 2024-12-28 Train 55 1
