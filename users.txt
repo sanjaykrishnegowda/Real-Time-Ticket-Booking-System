@@ -2,11 +2,3 @@ sanju 1234
 Shashank 4567
 munilakshmi 7890
 sharath 123
-sha 123
-d "c:\Users\Admin\Desktop\Real-Time-Ticket-Booking-System\"
-if ($?)
-g++ Real_Time_Ticket_Booking_System.cpp
-o Real_Time_Ticket_Booking_System
-; if
-$?) {
-\Real_Time_Ticket_Booking_System }
