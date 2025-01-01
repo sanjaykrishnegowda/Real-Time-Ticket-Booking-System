@@ -62,7 +62,8 @@ A command-line-based **Real-Time Ticket Booking System** that enables users to s
 - **Input Fields:** Transport type, origin, destination, date, and confirmation.
 - **Sample Output:**
 
-   ![Book Ticket Output](images/book_ticket.png)
+   ![image](https://github.com/user-attachments/assets/1f933d02-b7c1-4b3b-8e21-7d2c0e5b5edb)
+
 
    After booking, a ticket file (`ticket_<TicketID>.txt`) is generated with the details.
 
@@ -74,7 +75,8 @@ A command-line-based **Real-Time Ticket Booking System** that enables users to s
 - **Input Fields:** Ticket ID and confirmation.
 - **Sample Output:**
 
-   ![Cancel Booking Output](images/cancel_booking.png)
+   ![image](https://github.com/user-attachments/assets/dbfb5f20-4db5-4fd4-9514-6d4ecb0eec32)
+
 
 ---
 
@@ -83,7 +85,8 @@ A command-line-based **Real-Time Ticket Booking System** that enables users to s
 - **Description:** View the list of tickets booked by the current user.
 - **Sample Output:**
 
-   ![View Booked Tickets Output](images/view_booked_tickets.png)
+  ![image](https://github.com/user-attachments/assets/afc7c282-de36-4d90-8680-90d267fdecd0)
+
 
 ---
 
@@ -92,7 +95,8 @@ A command-line-based **Real-Time Ticket Booking System** that enables users to s
 - **Description:** View the list of tickets canceled by the current user.
 - **Sample Output:**
 
-   ![View Canceled Tickets Output](images/view_canceled_tickets.png)
+   ![image](https://github.com/user-attachments/assets/951d8a32-ce01-43ee-91e6-d4b2803c2d71)
+
 
 ---
 
