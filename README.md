@@ -51,8 +51,8 @@ A command-line-based **Real-Time Ticket Booking System** that enables users to s
 - **Input Fields:** Transport type, origin, destination, and date.
 - **Sample Output:**
 
-   ![Search Tickets Output](![image](https://github.com/user-attachments/assets/8298183a-5fce-41eb-a954-fa9906bef593)
-)
+   ![Search Tickets Output]![image](https://github.com/user-attachments/assets/42d2fe72-9090-4ac1-bfd2-e51e21b2cf74)
+
 
 ---
 
