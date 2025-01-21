@@ -10,31 +10,34 @@ using namespace std;
 // Class to manage tickets
 class Ticket {
 public:
+//data members of Ticket class
     int ticketID;
     string origin;
     string destination;
     string date;
     bool isAvailable;
     string transportType;
-    double price; // New attribute to store ticket price
+    double price; 
 
+// constructor to initialize ticket details 
     Ticket(int id, string org, string dest, string dt, string transport, double p, bool available = true)
         : ticketID(id), origin(org), destination(dest), date(dt), transportType(transport), price(p), isAvailable(available) {}
 };
 
+// Class to manage booking system
 class BookingSystem {
 private:
     vector<Ticket> tickets;              // List of tickets
     unordered_map<int, string> bookings; // TicketID -> Customer Name
 
-    // Load tickets from file
+// Load tickets from file
     void loadTickets() {
         ifstream file("routes.txt");
         if (!file.is_open()) {
             cerr << "Error: Could not open tickets file.\n";
             return;
         }
-
+    // Read ticket details from file
         int id, available;
         string org, dest, date, transport;
         double price;
@@ -51,7 +54,7 @@ private:
             cerr << "Error: Could not save tickets file.\n";
             return;
         }
-
+// Write ticket details to file
         for (const auto& ticket : tickets) {
             file << ticket.ticketID << " " << ticket.origin << " " << ticket.destination << " "
                  << ticket.date << " " << ticket.transportType << " " << ticket.price << " "
@@ -69,7 +72,7 @@ private:
             return;
         }
 
-        // Write ticket details into the file
+        // Write ticket details to the file
         ticketFile << "==== TICKET ====\n";
         ticketFile << "Ticket ID: " << ticket.ticketID << "\n";
         ticketFile << "Customer: " << customerName << "\n";
@@ -79,27 +82,28 @@ private:
         ticketFile << "Transport: " << ticket.transportType << "\n";
         ticketFile << "Price: INR " << fixed << setprecision(2) << ticket.price << "\n";
         ticketFile << "Status: Booked\n";
-        ticketFile << "***************************\n";
+        ticketFile << "****************\n";
 
         ticketFile.close();
         cout << "Ticket generated successfully! Check 'ticket_" << ticket.ticketID << ".txt' for your ticket details.\n";
     }
 
 public:
+// constructor to load tickets
     BookingSystem() {
         loadTickets();
     }
-
+// destructor to save tickets
     ~BookingSystem() {
         saveTickets();
     }
-
+// function to search tickets
     void searchTickets(const string& transport, const string& origin, const string& destination, const string& date) {
         bool found = false;
         cout << "\nAvailable " << transport << " Tickets:\n";
         cout << setw(10) << "TicketID" << setw(15) << "Origin" << setw(15) << "Destination"
              << setw(15) << "Date" << setw(15) << "Transport" << setw(10) << "Price" << setw(10) << "Status" << "\n";
-
+// Display available tickets based on the search criteria
         for (const auto& ticket : tickets) {
             if (ticket.transportType == transport && ticket.origin == origin && ticket.destination == destination
                 && ticket.date == date && ticket.isAvailable) {
@@ -115,7 +119,7 @@ public:
             cout << "No tickets available for the given criteria.\n";
         }
     }
-
+// function to book tickets
     void bookTicket(const string& transport, const string& origin, const string& destination, const string& date, const string& customerName) {
     bool found = false;
     for (auto& ticket : tickets) {
@@ -173,7 +177,7 @@ public:
     }
 }
 
-
+// function to pay for tickets
   bool payForTicket(double ticketPrice) {
     // Automatically set the payment to the ticket price
     double payment = ticketPrice;
@@ -234,7 +238,7 @@ public:
     }
 }
 
-
+// function to cancel booking
     void cancelBooking(int ticketID, const string& customerName) {
         bool found = false;
         for (auto& ticket : tickets) {
@@ -281,10 +285,10 @@ public:
         }
 
         if (!found) {
-            cout << "Ticket not found or already available.\n";
+            cout << "Ticket not found.\n";
         }
     }
-
+// function to view booked tickets
     void viewBookedTickets(const string& customerName) {
         bool found = false;
         cout << "\nBooked Tickets for " << customerName << ":\n";
@@ -300,15 +304,12 @@ public:
                 found = true;
             }
             bookedFile.close();
-        } else {
-            cerr << "Error opening booked file for " << customerName << endl;
-        }
-
+        } 
         if (!found) {
-            cout << "No booked tickets found for " << customerName << ".\n";
+            cout << "  No booked tickets found for " << customerName << ".\n";
         }
     }
-
+// function to view cancelled tickets
     void viewCancelledTickets(const string& customerName) {
         bool found = false;
         cout << "\nCancelled Tickets for " << customerName << ":\n";
@@ -324,12 +325,9 @@ public:
                 found = true;
             }
             cancelledFile.close();
-        } else {
-            cerr << "Error opening cancelled file for " << customerName << endl;
-        }
-
+        } 
         if (!found) {
-            cout << "No canceled tickets found for " << customerName << ".\n";
+            cout << "  No canceled tickets found for " << customerName << ".\n";
         }
     }
 };
@@ -337,6 +335,7 @@ public:
 // User authentication system
 class Authentication {
 public:
+// function to authenticate user
     bool authenticate(string& currentUser) {
         unordered_map<string, string> users;
         ifstream infile("users.txt");
@@ -375,6 +374,13 @@ public:
                 cout << "Register a new account.\n";
                 cout << "Enter username: ";
                 cin >> username;
+
+                // Check if username already exists
+                if (users.find(username) != users.end()) {
+                    cout << "Username already exists. Please login or choose a different username.\n";
+                    continue;
+                }
+
                 cout << "Enter password: ";
                 cin >> password;
 
@@ -391,15 +397,16 @@ public:
         }
     }
 };
-
+// main function
 int main() {
     string currentUser;
+    // object of Authentication class
     Authentication auth;
     if (!auth.authenticate(currentUser)) {
         cerr << "Authentication failed.\n";
         return 1;
     }
-
+// object of BookingSystem class
     BookingSystem bookingSystem;
 
     while (true) {
