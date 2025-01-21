@@ -416,7 +416,7 @@ int main() {
             cout << "Invalid choice, please enter a valid option (1-6).\n";
         } else if (choice == 1) {
             string transport, origin, destination, date;
-            cout << "Enter transport type: ";
+            cout << "Enter transport type (Bus/Train/Flight): ";
             cin >> transport;
             cout << "Enter origin: ";
             cin >> origin;

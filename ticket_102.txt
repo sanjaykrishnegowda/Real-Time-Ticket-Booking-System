@@ -1,0 +1,10 @@
+==== TICKET ====
+Ticket ID: 102
+Customer: sanjay
+Origin: Bengaluru
+Destination: Hyderabad
+Date: 2025-1-8
+Transport: Bus
+Price: INR 1500.00
+Status: Booked
+***************************

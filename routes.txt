@@ -1,5 +1,5 @@
 101 Bengaluru Hyderabad 2025-1-8 Train 370 1
-102 Bengaluru Hyderabad 2025-1-8 Bus 1500 1
+102 Bengaluru Hyderabad 2025-1-8 Bus 1500 0
 103 Bengaluru Hyderabad 2025-1-8 Flight 4000 1
 104 Bengaluru Hyderabad 2025-1-8 Train 370 1
 105 Bengaluru Hyderabad 2025-1-8 Bus 1500 1
