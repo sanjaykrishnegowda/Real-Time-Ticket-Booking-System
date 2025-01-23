@@ -243,6 +243,10 @@ public:
         bool found = false;
         for (auto& ticket : tickets) {
             if (ticket.ticketID == ticketID && !ticket.isAvailable) {
+                     if (bookings[ticket.ticketID] != customerName) {
+                cout << "Error: Ticket does not belong to " << customerName << ".\n";
+                return;
+            }
                 cout << "\nDo you want to cancel this booking? (y/n): ";
                 char choice;
                 cin >> choice;
